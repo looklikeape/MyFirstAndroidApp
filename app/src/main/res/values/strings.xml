@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">My First Application</string>
     <string name="nmedia">NMedia!</string>
+    <string name="netology_header" > Netology.University of internet professions</string>
+    <string name="post_date"> 21 of May 18:36 </string>
+    <string name="post"> Hello, this is new Netology! Once Netology have started as online-marketing intensive course. Later design, analysis and management courses have arrived. We are growing and help growing to our students: from beginners to professionals. But the most important thing remains with us: we believe that every one has a power which forces to wish more and aim higher, run faster. Our mission is to help to step on the growth path and start a changes
+
+    </string>
+    <string name="favourite_count">66</string>
+    <string name="share_count">66</string>
+    <string name="view_count">66</string>
 
 </resources>
