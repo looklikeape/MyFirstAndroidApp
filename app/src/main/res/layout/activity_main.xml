@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/post"
+        android:id="@+id/post_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/post"
@@ -40,17 +40,17 @@
         tools:layout_editor_absoluteX="68dp" />
 
     <TextView
-        android:id="@+id/favourite"
+        android:id="@+id/favourite_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="@string/favourite_count"
-        app:layout_constraintBottom_toBottomOf="@+id/favourite_view"
-        app:layout_constraintStart_toEndOf="@+id/favourite_view"
-        app:layout_constraintTop_toTopOf="@+id/favourite_view" />
+        app:layout_constraintBottom_toBottomOf="@+id/favourite"
+        app:layout_constraintStart_toEndOf="@+id/favourite"
+        app:layout_constraintTop_toTopOf="@+id/favourite" />
 
     <TextView
-        android:id="@+id/share"
+        android:id="@+id/share_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toTopOf="@+id/share_view" />
 
     <TextView
-        android:id="@+id/view"
+        android:id="@+id/view_count"
         android:layout_width="17dp"
         android:layout_height="16dp"
         android:text="@string/view_count"
@@ -94,7 +94,7 @@
         tools:ignore="HardcodedText" />
 
     <ImageView
-        android:id="@+id/favourite_view"
+        android:id="@+id/favourite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="favourite"
@@ -108,12 +108,12 @@
         android:id="@+id/share_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="15dp"
         android:contentDescription="more"
-        android:src="@drawable/share"
-        app:layout_constraintBottom_toBottomOf="@+id/favourite_view"
-        app:layout_constraintStart_toEndOf="@+id/favourite_view"
-        app:layout_constraintTop_toTopOf="@+id/favourite_view"
+        android:src="@drawable/share_view"
+        app:layout_constraintBottom_toBottomOf="@+id/favourite"
+        app:layout_constraintStart_toEndOf="@+id/favourite_count"
+        app:layout_constraintTop_toTopOf="@+id/favourite"
         tools:ignore="HardcodedText" />
 
     <ImageView
@@ -124,7 +124,7 @@
         android:src="@drawable/views"
         android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/share_view"
-        app:layout_constraintEnd_toStartOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/view_count"
         app:layout_constraintTop_toTopOf="@+id/share_view"
         tools:ignore="HardcodedText" />
 
