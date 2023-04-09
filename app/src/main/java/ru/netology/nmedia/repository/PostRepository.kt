@@ -1,15 +1,17 @@
 package ru.netology.nmedia.repository
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import ru.netology.nmedia.dto.Post
 
 
 interface PostRepository {
-    fun getData():LiveData<Post>
+    fun getData(): LiveData<Post>
     fun like()
     fun share()
 }
-class PostRepositoryInMemoryImpl: PostRepository{
+
+class PostRepositoryInMemoryImpl : PostRepository {
     private var post = Post(
         header = "Нетология. Университет интернет профессий",
         content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов " +
@@ -21,18 +23,19 @@ class PostRepositoryInMemoryImpl: PostRepository{
         published = "21 мая 18:36",
         likedByMe = false,
         sharedByMe = false,
-        likes = 999,
-        shares = 990
+        likes = 1_111_520,
+        shares = 990_014
     )
     private val data = MutableLiveData(post)
     override fun getData(): LiveData<Post> = data
     override fun like() {
         post = post.copy(
             likedByMe = !post.likedByMe,
-            likes =  if (post.likedByMe) post.likes - 1 else post.likes + 1,
+            likes = if (post.likedByMe) post.likes - 1 else post.likes + 1,
         )
         data.value = post
     }
+
     override fun share() {
         post = post.copy(
             shares = post.shares + 1
