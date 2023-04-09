@@ -23,8 +23,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
         published = "21 мая 18:36",
         likedByMe = false,
         sharedByMe = false,
-        likes = 100_298_002,
-        shares = 990_614
+        likes = 1_111_520,
+        shares = 990_014
     )
     private val data = MutableLiveData(post)
     override fun getData(): LiveData<Post> = data
