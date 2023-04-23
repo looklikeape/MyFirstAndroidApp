@@ -5,8 +5,9 @@
     android:id="@+id/list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
+    android:padding="5dp"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:listitem="@layout/card_post">
 
 </androidx.recyclerview.widget.RecyclerView>

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp"
+    android:padding="5dp"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/post_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="@string/post"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,8 +33,10 @@
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="0dp"
         android:text="@string/netology_header"
+
+        app:layout_constraintEnd_toStartOf="@id/more"
         app:layout_constraintBottom_toTopOf="@id/published_data"
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintTop_toTopOf="@+id/avatar"
@@ -89,7 +92,6 @@
         android:src="@drawable/ic_baseline_more_vert_24"
         app:layout_constraintBottom_toBottomOf="@+id/published_data"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/header_title"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
@@ -129,19 +131,21 @@
         tools:ignore="HardcodedText" />
 
 
-    <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Barrier
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="64dp" />
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="avatar,published_data,more"
+         />
 
-    <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Barrier
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="230dp" />
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="favourite,favourite_count,share_view,share_count,view_count,imageView"
+         />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
