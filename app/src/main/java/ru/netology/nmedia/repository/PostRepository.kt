@@ -9,12 +9,17 @@ interface PostRepository {
     fun getData(): LiveData<List<Post>>
     fun likeById(id: Long)
     fun share(id: Long)
+    fun removeById(id: Long)
+    fun save(it: Post)
+
+
 }
 
 class PostRepositoryInMemoryImpl : PostRepository {
+    private var nextId = 0L
     private var posts = listOf(
         Post(
-            id = 6,
+            id = ++nextId,
             header = "Нетология. Университет интернет профессий",
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов " +
                     "по онлайн - маркетингу. Затем появились курсы по дизайну, разработке аналитике " +
@@ -29,7 +34,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
             shares = 990_999
         ),
         Post(
-            id = 5,
+            id = ++nextId,
             header = "Нетология. Университет интернет профессий",
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов " +
                     "по онлайн - маркетингу. Затем появились курсы по дизайну, разработке аналитике " +
@@ -44,7 +49,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
             shares = 3
         ),
         Post(
-            id = 4,
+            id = ++nextId,
             header = "Нетология. Университет интернет профессий",
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов " +
                     "по онлайн - маркетингу. Затем появились курсы по дизайну, разработке аналитике " +
@@ -59,7 +64,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
             shares = 991_923
         ),
         Post(
-            id = 3,
+            id = ++nextId,
             header = "Нетология. Университет интернет профессий",
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов " +
                     "по онлайн - маркетингу. Затем появились курсы по дизайну, разработке аналитике " +
@@ -74,7 +79,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
             shares = 1_111_999
         ),
         Post(
-            id = 2,
+            id = ++nextId,
             header = "Нетология. Университет интернет профессий",
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов " +
                     "по онлайн - маркетингу. Затем появились курсы по дизайну, разработке аналитике " +
@@ -89,7 +94,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
             shares = 990_014
         ),
         Post(
-            id = 1,
+            id = ++nextId,
             header = "Нетология. Университет интернет профессий",
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов " +
                     "по онлайн - маркетингу. Затем появились курсы по дизайну, разработке аналитике " +
@@ -103,7 +108,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likes = 1_111_520,
             shares = 990_014
         )
-    )
+    ).reversed()
 
     private val data = MutableLiveData(posts)
 
@@ -133,4 +138,30 @@ class PostRepositoryInMemoryImpl : PostRepository {
         }
         data.value = posts
     }
+
+    override fun removeById(id: Long) {
+        posts = posts.filter {
+            it.id != id
+        }
+        data.value = posts
+    }
+
+    override fun save(post: Post) {
+        if (post.id == 0L) {
+            posts = listOf(
+                post.copy(
+                    id = ++nextId,
+                    header = "Me",
+                    likedByMe = false,
+                    published = "now"
+                )) + posts
+            data.value = posts
+            return
+        }
+        posts = posts.map {
+            if (it.id != post.id) it else it.copy(content = post.content)
+        }
+        data.value = posts
+    }
 }
+

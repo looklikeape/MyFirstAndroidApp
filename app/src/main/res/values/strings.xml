@@ -9,5 +9,9 @@
     <string name="favourite_count">0</string>
     <string name="share_count">0</string>
     <string name="view_count">66</string>
+    <string name="remove">remove</string>
+    <string name="content">Content</string>
+    <string name="empty_post">Enter the content</string>
+    <string name="edit" >edit</string>
 
 </resources>
