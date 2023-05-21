@@ -16,11 +16,10 @@ class PostViewHolder(
             headerTitle.text = post.header
             postContent.text = post.content
             publishedData.text = post.published
-            favouriteCount.text = postLikeShareCounter(post.likes)
-            shareCount.text = postLikeShareCounter(post.shares)
-            favourite.setImageResource(
-                if (post.likedByMe) R.drawable.favourite_liked else R.drawable.favourite
-            )
+            shareView.isChecked = post.sharedByMe
+            shareView.text = postLikeShareCounter(post.shares)
+            favourite.isChecked= post.likedByMe
+            favourite.text = postLikeShareCounter(post.likes)
             favourite.setOnClickListener {
                 listener.onLike(post)
             }

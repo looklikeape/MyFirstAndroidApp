@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/post_content"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/post"
@@ -44,26 +44,6 @@
         tools:layout_editor_absoluteX="68dp" />
 
     <TextView
-        android:id="@+id/favourite_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="@string/favourite_count"
-        app:layout_constraintBottom_toBottomOf="@+id/favourite"
-        app:layout_constraintStart_toEndOf="@+id/favourite"
-        app:layout_constraintTop_toTopOf="@+id/favourite" />
-
-    <TextView
-        android:id="@+id/share_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="@string/share_count"
-        app:layout_constraintBottom_toBottomOf="@+id/share_view"
-        app:layout_constraintStart_toEndOf="@+id/share_view"
-        app:layout_constraintTop_toTopOf="@+id/share_view" />
-
-    <TextView
         android:id="@+id/view_count"
         android:layout_width="17dp"
         android:layout_height="16dp"
@@ -85,45 +65,58 @@
         tools:layout_editor_absoluteX="163dp" />
 
 
-    <ImageView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/more"
+        style="@style/MoreStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:checkable="true"
         android:contentDescription="more"
-        android:src="@drawable/ic_baseline_more_vert_24"
+        android:minWidth="48dp"
+        app:backgroundTint="@android:color/transparent"
+        app:icon="@drawable/selector_more"
         app:layout_constraintBottom_toBottomOf="@+id/published_data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:checked="true"
         tools:ignore="HardcodedText" />
 
-    <ImageView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/favourite"
+        style="@style/FavouriteStyle"
+        android:checkable="true"
+        tools:checked ="true"
+        tools:text="10"
         android:layout_width="wrap_content"
+        app:backgroundTint="@android:color/transparent"
         android:layout_height="wrap_content"
         android:contentDescription="favourite"
-        android:src="@drawable/favourite"
+        app:icon="@drawable/selector_favourite"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
         android:layout_marginTop="10dp"
         tools:ignore="HardcodedText" />
 
-    <ImageView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/share_view"
+        style="@style/ShareStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:contentDescription="more"
-        android:src="@drawable/share_view"
-        app:layout_constraintBottom_toBottomOf="@+id/favourite"
-        app:layout_constraintStart_toEndOf="@+id/favourite_count"
+        android:layout_marginStart="8dp"
+        android:checkable="true"
+        android:contentDescription="share"
+        app:backgroundTint="@android:color/transparent"
+        app:icon="@drawable/selector_share"
+        app:layout_constraintStart_toEndOf="@+id/favourite"
         app:layout_constraintTop_toTopOf="@+id/favourite"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        tools:text="10" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="more"
+        android:contentDescription="view"
         android:src="@drawable/views"
         android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/share_view"
@@ -148,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="favourite,favourite_count,share_view,share_count,view_count,imageView"
+        app:constraint_referenced_ids="favourite,share_view,view_count,imageView"
          />
 
 
